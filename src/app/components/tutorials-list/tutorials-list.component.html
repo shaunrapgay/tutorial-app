@@ -1,0 +1,34 @@
+<br>
+<div class="search-box col-md-5">               
+    <form>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</button>
+                <!-- <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Category One</a>
+                  <div role="separator" class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated Category</a>
+                </div> -->
+            </div>
+            <input type="text" class="form-control" aria-label="Search input with dropdown button">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="col-md-6" >
+    <h4>Tutorials List</h4>
+    <ul class="list-group" >
+      <li class="list-group-item"  *ngFor="let tutorial of tutorialList;">
+          <p class="lead">Title: {{tutorial?.title | uppercase}}</p>
+          <p>Description: {{tutorial?.description}}</p>
+          <p>Published: {{tutorial?.published ? "Published": "Pending" }}</p>
+          <button class="btn btn-success"(click)="editTutorial(tutorial)">Edit</button> | <button class="btn btn-danger" (click)="deleteTutorial(tutorial)">Delete</button> | <button class="btn btn-primary" (click)="findTutorials(tutorial)">Find</button>
+      </li>
+    </ul>
+
+    <button *ngIf="tutorialList" class="m-3 btn btn-sm btn-danger" (click)="deleteAll()">
+      Remove All
+    </button>
+  </div>

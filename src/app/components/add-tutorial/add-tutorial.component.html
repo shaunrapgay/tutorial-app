@@ -1,0 +1,19 @@
+<div class="container">
+    <div>
+        <h4>Add Tutorial</h4>
+        <form [formGroup]="tutorialForm">
+            <div class="form-group"></div>
+            <label>Title</label>
+            <input type="text" class="form-control" formControlName="title">
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" formControlName="description">
+            </div>
+            <button *ngIf="!submitted"class="btn btn-success" (click)="onSubmit()"type="submit">Save</button>
+        </form>
+    </div>
+    <div *ngIf="submitted">
+        <h4>You've submitted your entry successfully!!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+</div>
